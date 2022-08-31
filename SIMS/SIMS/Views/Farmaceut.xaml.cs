@@ -16,24 +16,28 @@ using System.Windows.Shapes;
 namespace SIMS.Views
 {
     /// <summary>
-    /// Interaction logic for Doktor.xaml
+    /// Interaction logic for Farmaceut.xaml
     /// </summary>
-    public partial class Doktor : Page
+    public partial class Farmaceut : Page
     {
-        public Doktor()
+        public Farmaceut()
         {
             InitializeComponent();
         }
 
         private void btnLekovi_Click(object sender, RoutedEventArgs e)
         {
-            
             contentFrame.Navigate(new OdobreniLekovi());
         }
 
         private void btnOdobravanje_Click(object sender, RoutedEventArgs e)
         {
             contentFrame.Navigate(new OdobravanjeLekova());
+        }
+
+        private void btnOdbijeni_Click(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(new OdbijeniLekovi());
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

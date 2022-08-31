@@ -36,6 +36,8 @@ namespace SIMS.Views
 
             if (user != null)
             {
+                app.LoggedUser = user;
+
                 var window = app.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) as MainWindow;
                 if (user.Role.Equals(UserRole.Doktor))
                 {
@@ -43,7 +45,7 @@ namespace SIMS.Views
                 }
                 else if (user.Role.Equals(UserRole.Farmaceut))
                 {
-
+                    window.mainFrame.Navigate(new Farmaceut());
                 }
                 else
                 {

@@ -12,10 +12,12 @@ namespace SIMS.Services.Implementation
     public class DrugService : IDrugService
     {
         private readonly IDrugRepository drugRepository;
+        private readonly IConfirmationService confirmationService;
 
-        public DrugService(IDrugRepository drugRepository)
+        public DrugService(IDrugRepository drugRepository, IConfirmationService confirmationService)
         {
             this.drugRepository = drugRepository;
+            this.confirmationService = confirmationService;
         }
 
         public List<Drug> GetAccepted()
@@ -28,8 +30,8 @@ namespace SIMS.Services.Implementation
             List<Drug> drugs = drugRepository.GetAll().Where(drug => !drug.Rejected && !drug.Accepted).ToList();
             drugs.ForEach(drug =>
             {
-                //var acceptance = acceptanceService.GetAcceptanceByUserIdAndMedicineId(user.JMBG, medicine.Id);
-                //drug.Accepted = acceptance != null;
+                var confirmation = confirmationService.GetByUserAndMedicine(user, drug);
+                drug.Accepted = confirmation != null;
             });
 
             return drugs;
@@ -138,7 +140,19 @@ namespace SIMS.Services.Implementation
 
         public bool Accept(Drug drug, User user)
         {
-            throw new NotImplementedException();
+            var accepted = confirmationService.Confirm(user, drug);
+            if (accepted == true)
+            {
+                var d = drugRepository.GetAll().Where(d => d.ID == drug.ID).First();
+                d.Rejected = false;
+                d.Accepted = true;
+                d.ReasonForRejection = "";
+                d.PersonWhoRejected = "";
+
+                drugRepository.Update(d);
+            }
+
+            return accepted;
         }
 
         public void Reject(int id, string reason, string name)
@@ -151,7 +165,7 @@ namespace SIMS.Services.Implementation
 
             drugRepository.Update(drug);
 
-            //acceptanceService.DeleteAllAcceptancesForMedicine(medicineId);
+            confirmationService.DeleteAll(drug);
         }
 
         public void DeleteRefusedFlag (int id, User user)
@@ -161,12 +175,12 @@ namespace SIMS.Services.Implementation
             drug.PersonWhoRejected = "";
             drug.ReasonForRejection = "";
 
-            //acceptanceService.AcceptMedicineByUser(user.JMBG, medicineId, user.Role == UserRole.Lekar);
+            confirmationService.Confirm(user, drug);
         }
 
         public void DeleteAcceptedFlag(User user, Drug drug)
         {
-            throw new NotImplementedException();
+            confirmationService.DeleteConfirmation(user, drug);
         }
     }
 }

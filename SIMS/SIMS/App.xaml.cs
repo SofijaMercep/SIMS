@@ -1,4 +1,5 @@
 ﻿using SIMS.Controllers;
+using SIMS.Models;
 using SIMS.Repositories.Implementations;
 using SIMS.Repositories.Interfaces;
 using SIMS.Services.Implementation;
@@ -21,6 +22,7 @@ namespace SIMS
 
         public UserController UserController { get; set; }
         public DrugController DrugController { get; set; }
+        public User LoggedUser { get; set; }
 
         public App()
         {
@@ -28,10 +30,23 @@ namespace SIMS
             IUserService userService = new UserService(userRepository);
             UserController = new UserController(userService);
 
+            IConfrimationRepository confrimationRepository = new ConfirmationRepository("confirmation.txt");
+            IConfirmationService confirmationService = new ConfirmationService(confrimationRepository);
+
             IDrugRepository drugRepository = new DrugRepository("drugs.bin");
-            IDrugService drugService = new DrugService(drugRepository);
+            IDrugService drugService = new DrugService(drugRepository, confirmationService);
             DrugController = new DrugController(drugService);
 
+            //drugService.Add(new Drug()
+            //{
+            //    Accepted = false,
+            //    AvailableQuantity = 0,
+            //    Components = new Dictionary<string, DrugComponent>(),
+            //    ID = 3,
+            //    Name = "Neprihvacen",
+            //    Price = 500,
+            //    Producer = "west",
+            //});
         }
 
     }

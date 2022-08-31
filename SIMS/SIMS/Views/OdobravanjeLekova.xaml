@@ -1,0 +1,62 @@
+﻿<Page x:Class="SIMS.Views.OdobravanjeLekova"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SIMS.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OdobravanjeLekova">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="DataGridMain" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sifra" Binding="{Binding Path=ID}"  IsReadOnly="True"  MinWidth="100" />
+                <DataGridTextColumn Header="Ime" Binding="{Binding Path=Name}" IsReadOnly="True" MinWidth="100"  />
+                <DataGridTextColumn Header="Proizvodjac" Binding="{Binding Path=Producer}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Cena" Binding="{Binding Path=Price}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Kolicina" Binding="{Binding Path=AvailableQuantity}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTemplateColumn Header="Sastojci" IsReadOnly="True" MinWidth="100" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Path=Ingredients}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding Path=Value.Name }"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  MinWidth="50" Header="Odobreno" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Path=Accepted}" Checked="Accept_CheckBox_Checked" Unchecked="Accept_CheckBox_Unchecked" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  MinWidth="50" Header="Odbijanje" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Checked="Reject_CheckBox_Checked" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Lekovi koji cekaju odobrenje" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Background="White"/>
+    </Grid>
+</Page>
