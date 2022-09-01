@@ -24,6 +24,8 @@ namespace SIMS.Views
         public PorucivanjeLekova()
         {
             InitializeComponent();
+            var app = Application.Current as App;
+            Drugs.ItemsSource = app.DrugController.GetAllAccepted();
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)

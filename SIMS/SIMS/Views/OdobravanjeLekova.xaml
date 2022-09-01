@@ -29,7 +29,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <ItemsControl ItemsSource="{Binding Path=Ingredients}">
+                                <ItemsControl ItemsSource="{Binding Path=Components}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <Label Content="{Binding Path=Value.Name }"/>

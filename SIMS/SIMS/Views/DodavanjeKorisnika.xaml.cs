@@ -68,7 +68,7 @@ namespace SIMS.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Korisnik vec postoji");
                 return;
             }
 

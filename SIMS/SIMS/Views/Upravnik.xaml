@@ -19,6 +19,7 @@
             <Button Name="Korisnici" Height="30" Background="LightSeaGreen" Foreground="White" Click="Korisnici_Click">Korisnici</Button>
             <Button Name="NoviLek" Height="30" Background="LightSeaGreen" Foreground="White" Click="NoviLek_Click">Novi lek</Button>
             <Button Name="Lekovi" Height="30" Background="LightSeaGreen" Foreground="White" Click="Lekovi_Click">Lekovi</Button>
+            <Button Name="Porudzbine" Height="30" Background="LightSeaGreen" Foreground="White" Click="Porudzbine_Click">Porudzbine</Button>
             <Button Name="Logout" Height="30" Background="LightSeaGreen" Foreground="White" Click="Logout_Click">Logout</Button>
         </StackPanel>
 

@@ -53,5 +53,10 @@ namespace SIMS.Views
         {
             contentFrame.Navigate(new OdobreniLekovi());
         }
+
+        private void Porudzbine_Click(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(new PorucivanjeLekova());
+        }
     }
 }

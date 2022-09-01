@@ -38,7 +38,7 @@ namespace SIMS.Views
             {
                 if (String.IsNullOrEmpty(search.Text))
                 {
-                    DrugsGrid.ItemsSource = app.DrugController.GetRejected();
+                    DrugsGrid.ItemsSource = app.DrugController.GetAllAccepted();
                     return;
                 }
 

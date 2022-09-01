@@ -179,7 +179,7 @@ namespace SIMS.Services.Implementation
         public void IncreaseStock(int id, int quantity)
         {
             Drug drug = drugRepository.GetAll().Where(drug => drug.ID == id).First();
-            drug.AvailableQuantity = quantity;
+            drug.AvailableQuantity += quantity;
             drugRepository.Update(drug);
         }
 
