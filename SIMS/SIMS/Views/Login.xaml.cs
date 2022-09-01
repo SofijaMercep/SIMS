@@ -49,7 +49,9 @@ namespace SIMS.Views
                 }
                 else
                 {
-
+                    app.OrderController.IncreaseQuantitiesForOrders();    
+                    MessageBox.Show($"Pregled porudzbina izvrsen");
+                    window.mainFrame.Navigate(new Upravnik());
                 }
 
                 return;

@@ -51,13 +51,13 @@
 
         <TextBox x:Name="search" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="18px" Height="30px" Grid.Row="1" />
 
-        <DataGrid x:Name="DrugsGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="2" >
+        <DataGrid x:Name="DrugsGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1" Margin="0,30,-207,0" Grid.RowSpan="2" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=ID}"  IsReadOnly="True"  MinWidth="100" />
+                <DataGridTextColumn Header="Sifra" Binding="{Binding Path=ID}"  IsReadOnly="True"  MinWidth="100" />
                 <DataGridTextColumn Header="Ime" Binding="{Binding Path=Name}" IsReadOnly="True" MinWidth="100" />
-                <DataGridTextColumn Header="Proizvođač" Binding="{Binding Path=Producer}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Proizvodjac" Binding="{Binding Path=Producer}" IsReadOnly="True" MinWidth="100" />
                 <DataGridTextColumn Header="Cena" Binding="{Binding Path=Price}" IsReadOnly="True" MinWidth="100" />
-                <DataGridTextColumn Header="Količina" Binding="{Binding Path=AvailableQuantity}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Kolicina" Binding="{Binding Path=AvailableQuantity}" IsReadOnly="True" MinWidth="100" />
                 <DataGridTemplateColumn Header="Sastojci" IsReadOnly="True" MinWidth="100" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -70,6 +70,16 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Odbio" Binding="{Binding Path=PersonWhoRejected}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Razlog odbijanja" Binding="{Binding Path=ReasonForRejection}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTemplateColumn  MinWidth="50" Header="Odobravanje" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Checked="CheckBox_Checked" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

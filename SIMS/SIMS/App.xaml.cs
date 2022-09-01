@@ -22,6 +22,8 @@ namespace SIMS
 
         public UserController UserController { get; set; }
         public DrugController DrugController { get; set; }
+        public OrderController OrderController { get; set; }
+        public DrugComponentController DrugComponentController { get; set; }
         public User LoggedUser { get; set; }
 
         public App()
@@ -36,6 +38,14 @@ namespace SIMS
             IDrugRepository drugRepository = new DrugRepository("drugs.bin");
             IDrugService drugService = new DrugService(drugRepository, confirmationService);
             DrugController = new DrugController(drugService);
+
+            IOrderRepository orderRepository = new OrderRepository("order.txt");
+            IOrderService orderService = new OrderService(orderRepository, drugService);
+            OrderController = new OrderController(orderService);
+
+            IDrugComponentRepository drugComponentRepository = new DrugComponentRepository("drugComponent.txt");
+            IDrugComponentService drugComponentService = new DrugComponentService(drugComponentRepository);
+            DrugComponentController = new DrugComponentController(drugComponentService);
 
             //drugService.Add(new Drug()
             //{

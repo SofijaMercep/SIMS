@@ -36,6 +36,12 @@ namespace SIMS.Views
             DrugsGrid.ItemsSource = drugs;
             search.TextChanged += (object sender, TextChangedEventArgs args) =>
             {
+                if (String.IsNullOrEmpty(search.Text))
+                {
+                    DrugsGrid.ItemsSource = app.DrugController.GetRejected();
+                    return;
+                }
+
                 if (sifra.IsSelected)
                 {
                     drugs = controller.FilterDrugs("sifra", search.Text.ToLower(), true);

@@ -39,7 +39,7 @@ namespace SIMS.Services.Implementation
 
         public List<Drug> GetRejected()
         {
-            return drugRepository.GetAll().Where(drug => drug.Rejected).ToList();
+            return drugRepository.GetAll().Where(drug => drug.Rejected && !drug.Accepted).ToList();
         }
         public List<Drug> Filter(string property, string text, bool onlyAccpted)
         {
@@ -77,7 +77,7 @@ namespace SIMS.Services.Implementation
             } else if (property.Equals("cena"))
             {
                 var splittedString = text.Split(',');
-                if (splittedString.Length != 2)
+                if (splittedString.Length == 2)
                 {
                     try
                     {   
@@ -119,10 +119,55 @@ namespace SIMS.Services.Implementation
                 }
             } else if (property.Equals("sastojci"))
             {
-                
+                List<Drug> list = new List<Drug>();
+
+
+                List<Drug> svi;
+                if (onlyAccpted)
+                {
+                       svi = GetAccepted();
+                } else
+                {
+                    svi = GetRejected();
+                }
+                try
+                {
+                    var ORLista = text.Split('|').ToList();
+                    ORLista.ForEach(orElement =>
+                    {
+                        List<Drug> deoPreOR = svi.Where(d => d != null).ToList();
+                        var ANDlist = orElement.Split('&').ToList();
+                        ANDlist.ForEach(andElement =>
+                        {
+                            deoPreOR = deoPreOR.Intersect(svi.Where(d => d.Components.ContainsKey(andElement))).ToList();
+                        });
+                        list = list.Union(deoPreOR).ToList();
+                    });
+
+                    return list;
+
+                }
+                catch
+                {
+                    if (onlyAccpted)
+                    {
+                        return GetAccepted();
+                    }
+                    else
+                    {
+                        return GetRejected();
+                    }
+                }
+
             }
-                
-            return GetRejected();
+            
+            if (onlyAccpted)
+            {
+                return GetAccepted();
+            } else
+            {
+                return GetRejected();
+            }
             
         }
 
@@ -174,6 +219,8 @@ namespace SIMS.Services.Implementation
             drug.Rejected = false;
             drug.PersonWhoRejected = "";
             drug.ReasonForRejection = "";
+
+            drugRepository.Update(drug);
 
             confirmationService.Confirm(user, drug);
         }

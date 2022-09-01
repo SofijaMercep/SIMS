@@ -31,10 +31,16 @@ namespace SIMS.Views
             var app = Application.Current as App;
 
             controller = app.DrugController;
-            this.drugs = app.DrugController.GetAllAccepted();
+            this.drugs = app.DrugController.GetRejected();
             DrugsGrid.ItemsSource = drugs;
             search.TextChanged += (object sender, TextChangedEventArgs args) =>
             {
+                if (String.IsNullOrEmpty(search.Text))
+                {
+                    DrugsGrid.ItemsSource = app.DrugController.GetRejected();
+                    return;
+                }
+
                 if (sifra.IsSelected)
                 {
                     drugs = controller.FilterDrugs("sifra", search.Text.ToLower(), false);
@@ -101,6 +107,16 @@ namespace SIMS.Views
         private void sastojci_Selected(object sender, RoutedEventArgs e)
         {
             drugs = controller.FilterDrugs("sastojci", search.Text.ToLower(), false);
+            DrugsGrid.ItemsSource = drugs;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var app = Application.Current as App;
+            Drug drug= (Drug)((CheckBox)e.Source).DataContext;
+            app.DrugController.RemoveRefusedFlag(drug.ID, app.LoggedUser);
+
+            drugs = drugs.Where(d => d.ID != drug.ID).ToList();
             DrugsGrid.ItemsSource = drugs;
         }
     }

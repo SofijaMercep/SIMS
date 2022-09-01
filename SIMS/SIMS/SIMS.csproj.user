@@ -7,7 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\DodavanjeLeka.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Korisnici.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PorucivanjeLekova.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Upravnik.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Dialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DodavanjeKorisnika.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Doktor.xaml.cs">
@@ -33,7 +48,22 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\DodavanjeLeka.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Korisnici.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PorucivanjeLekova.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Upravnik.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Dialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DodavanjeKorisnika.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Doktor.xaml">

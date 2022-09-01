@@ -7,4 +7,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="obj\Debug\net6.0-windows\drugComponent.txt" />
+  </ItemGroup>
+
 </Project>

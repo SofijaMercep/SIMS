@@ -31,7 +31,7 @@ namespace SIMS.Repositories.Implementations
             {
 
                 users.ForEach(modifiedUser => {
-                    string textualRepresentation = String.Format("{0}|{1}|{2}|{3}|{4}|{5}{6}|{7}", modifiedUser.Jmbg, modifiedUser.Name,
+                    string textualRepresentation = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}", modifiedUser.Jmbg, modifiedUser.Name,
                         modifiedUser.LastName, modifiedUser.Role, modifiedUser.Email, modifiedUser.Password, modifiedUser.PhoneNumber, modifiedUser.Blocked);
 
                     sw.WriteLine(textualRepresentation);
