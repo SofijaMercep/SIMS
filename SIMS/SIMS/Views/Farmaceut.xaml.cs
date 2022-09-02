@@ -25,19 +25,19 @@ namespace SIMS.Views
             InitializeComponent();
         }
 
-        private void btnLekovi_Click(object sender, RoutedEventArgs e)
+        private void btnLijekovi_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(new OdobreniLekovi());
+            contentFrame.Navigate(new OdobreniLijekovi());
         }
 
         private void btnOdobravanje_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(new OdobravanjeLekova());
+            contentFrame.Navigate(new OdobravanjeLijekova());
         }
 
         private void btnOdbijeni_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(new OdbijeniLekovi());
+            contentFrame.Navigate(new OdbijeniLijekovi());
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

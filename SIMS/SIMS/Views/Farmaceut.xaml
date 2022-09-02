@@ -15,9 +15,9 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" Background="YellowGreen">
-            <Button Name="btnLekovi" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnLekovi_Click">Pregled lekova</Button>
-            <Button Name="btnOdobravanje" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnOdobravanje_Click">Odobravanje lekova</Button>
-            <Button Name="btnOdbijeni" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnOdbijeni_Click">Odbijeni lekovi</Button>
+            <Button Name="btnLijekovi" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnLijekovi_Click">Pregled lijekova</Button>
+            <Button Name="btnOdobravanje" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnOdobravanje_Click">Odobravanje lijekova</Button>
+            <Button Name="btnOdbijeni" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnOdbijeni_Click">Odbijeni lijekovi</Button>
             <Button Name="btnLogout" Height="30" Background="LightSeaGreen" Foreground="White" Click="btnLogout_Click">Logout</Button>
         </StackPanel>
 

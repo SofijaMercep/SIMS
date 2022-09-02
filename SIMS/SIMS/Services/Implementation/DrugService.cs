@@ -74,7 +74,7 @@ namespace SIMS.Services.Implementation
                 {
                     return GetRejected().Where(medicine => medicine.Producer.ToLower().Contains(text)).ToList();
                 }
-            } else if (property.Equals("cena"))
+            } else if (property.Equals("cijena"))
             {
                 var splittedString = text.Split(',');
                 if (splittedString.Length == 2)

@@ -1,4 +1,4 @@
-﻿<Page x:Class="SIMS.Views.OdobreniLekovi"
+﻿<Page x:Class="SIMS.Views.OdbijeniLijekovi"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SIMS.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="OdobreniLekovi">
+      Title="OdbijeniLijekovi">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,8 +22,8 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
-            <TextBlock>Pretraga po: </TextBlock>
-            
+            <TextBlock>Pretraga po:</TextBlock>
+
             <ListViewItem Width="70" Name="sifra" BorderThickness="1" BorderBrush="Black" Background="Gray" Selected="sifra_Selected">
                 Sifra
             </ListViewItem>
@@ -31,13 +31,13 @@
             <ListViewItem Width="70" Name="naziv" BorderThickness="1" BorderBrush="Black" Background="Gray" Selected="naziv_Selected">
                 Naziv
             </ListViewItem>
-            
+
             <ListViewItem Width="120" Name="proizvodjac" BorderThickness="1" BorderBrush="Black" Background="Gray" Selected="proizvodjac_Selected">
                 Proizvodjac
             </ListViewItem>
 
-            <ListViewItem Width="70" Name="cena" BorderThickness="1" BorderBrush="Black" Background="Gray" Selected="cena_Selected">
-                Cena
+            <ListViewItem Width="70" Name="cijena" BorderThickness="1" BorderBrush="Black" Background="Gray" Selected="cijena_Selected">
+                Cijena
             </ListViewItem>
 
             <ListViewItem Width="90" Name="kolicina" BorderThickness="1" BorderBrush="Black" Background="Gray" Selected="kolicina_Selected">
@@ -51,13 +51,13 @@
 
         <TextBox x:Name="search" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="18px" Height="30px" Grid.Row="1" />
 
-        <DataGrid x:Name="DrugsGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="2" >
+        <DataGrid x:Name="DrugsGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1" Margin="0,30,-207,0" Grid.RowSpan="2" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=ID}"  IsReadOnly="True"  MinWidth="100" />
+                <DataGridTextColumn Header="Sifra" Binding="{Binding Path=ID}"  IsReadOnly="True"  MinWidth="100" />
                 <DataGridTextColumn Header="Ime" Binding="{Binding Path=Name}" IsReadOnly="True" MinWidth="100" />
-                <DataGridTextColumn Header="Proizvođač" Binding="{Binding Path=Producer}" IsReadOnly="True" MinWidth="100" />
-                <DataGridTextColumn Header="Cena" Binding="{Binding Path=Price}" IsReadOnly="True" MinWidth="100" />
-                <DataGridTextColumn Header="Količina" Binding="{Binding Path=AvailableQuantity}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Proizvodjac" Binding="{Binding Path=Producer}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Cijena" Binding="{Binding Path=Price}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Kolicina" Binding="{Binding Path=AvailableQuantity}" IsReadOnly="True" MinWidth="100" />
                 <DataGridTemplateColumn Header="Sastojci" IsReadOnly="True" MinWidth="100" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -70,6 +70,16 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Odbio" Binding="{Binding Path=PersonWhoRejected}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTextColumn Header="Razlog odbijanja" Binding="{Binding Path=ReasonForRejection}" IsReadOnly="True" MinWidth="100" />
+                <DataGridTemplateColumn  MinWidth="50" Header="Odobravanje" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Checked="CheckBox_Checked" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

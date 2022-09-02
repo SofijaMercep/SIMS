@@ -1,0 +1,5 @@
+1|sofija|mercep|Doktor|sofija@test.com|test|111|False
+2|sofija2|mercep2|Farmaceut|sofija2@test.com|test|111|False
+3|sofija3|mercep3|Upravnik|sofija3@test.com|test|111|False
+5|marko|markovic|Farmaceut|marko@test.com|test|444|False
+4|petar|petrovic|Doktor|petar@test.com|test|765|False

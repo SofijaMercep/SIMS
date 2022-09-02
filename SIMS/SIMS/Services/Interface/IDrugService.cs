@@ -16,7 +16,7 @@ namespace SIMS.Services.Interface
         void Add(Drug drug);
         bool Accept(Drug drug, User user);
         void DeleteAcceptedFlag(User user, Drug drug);
-        void Reject(int id, string reason, string refusedBy);
+        void Reject(int id, string reason, string rejectedBy);
         void DeleteRefusedFlag(int id, User user);
         void IncreaseStock(int id, int quantity);
         

@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace SIMS.Views
 {
     /// <summary>
-    /// Interaction logic for PorucivanjeLekova.xaml
+    /// Interaction logic for PorucivanjeLijekova.xaml
     /// </summary>
-    public partial class PorucivanjeLekova : Page
+    public partial class PorucivanjeLijekova : Page
     {
-        public PorucivanjeLekova()
+        public PorucivanjeLijekova()
         {
             InitializeComponent();
             var app = Application.Current as App;
@@ -53,7 +53,7 @@ namespace SIMS.Views
 
             if (Drugs.SelectedIndex == -1)
             {
-                MessageBox.Show("Lek nije izabran");
+                MessageBox.Show("Lijek nije izabran");
                 return;
             }
 

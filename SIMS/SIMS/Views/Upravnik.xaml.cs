@@ -44,19 +44,19 @@ namespace SIMS.Views
             contentFrame.Navigate(new Korisnici());
         }
 
-        private void NoviLek_Click(object sender, RoutedEventArgs e)
+        private void NoviLijek_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(new DodavanjeLeka());
+            contentFrame.Navigate(new DodavanjeLijeka());
         }
 
-        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        private void Lijekovi_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(new OdobreniLekovi());
+            contentFrame.Navigate(new OdobreniLijekovi());
         }
 
         private void Porudzbine_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(new PorucivanjeLekova());
+            contentFrame.Navigate(new PorucivanjeLijekova());
         }
     }
 }

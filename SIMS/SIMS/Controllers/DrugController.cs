@@ -56,14 +56,14 @@ namespace SIMS.Controllers
             drugService.DeleteAcceptedFlag(user, drug);
         }
 
-        public void Reject(int medicineId, string reason, string name)
+        public void Reject(int drugId, string reason, string name)
         {
-            drugService.Reject(medicineId, reason, name);
+            drugService.Reject(drugId, reason, name);
         }
 
-        public void RemoveRefusedFlag(int medicineId, User user)
+        public void RemoveRefusedFlag(int drugId, User user)
         {
-            drugService.DeleteRefusedFlag(medicineId, user);
+            drugService.DeleteRefusedFlag(drugId, user);
         }
     }
 }

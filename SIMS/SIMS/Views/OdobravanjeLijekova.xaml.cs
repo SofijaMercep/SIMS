@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 namespace SIMS.Views
 {
     /// <summary>
-    /// Interaction logic for OdobravanjeLekova.xaml
+    /// Interaction logic for OdobravanjeLijekova.xaml
     /// </summary>
-    public partial class OdobravanjeLekova : Page
+    public partial class OdobravanjeLijekova : Page
     {
         private List<Drug> drugs;
-        public OdobravanjeLekova()
+        public OdobravanjeLijekova()
         {
             InitializeComponent();
 

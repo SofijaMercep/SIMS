@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace SIMS.Views
 {
     /// <summary>
-    /// Interaction logic for DodavanjeLeka.xaml
+    /// Interaction logic for DodavanjeLijeka.xaml
     /// </summary>
-    public partial class DodavanjeLeka : Page
+    public partial class DodavanjeLijeka : Page
     {
-        public DodavanjeLeka()
+        public DodavanjeLijeka()
         {
             InitializeComponent();
 
@@ -43,7 +43,7 @@ namespace SIMS.Views
 
             if (Components.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Lek mora da sadrzi sastojke");
+                MessageBox.Show("Lijek mora da sadrzi sastojke");
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace SIMS.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lek vec postoji");
+                MessageBox.Show("Lijek vec postoji");
                 return;
             }
 

@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\DodavanjeLeka.xaml.cs">
+    <Compile Update="Views\DodavanjeLijeka.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Korisnici.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\PorucivanjeLekova.xaml.cs">
+    <Compile Update="Views\PorucivanjeLijekova.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Upravnik.xaml.cs">
@@ -34,13 +34,13 @@
     <Compile Update="Views\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\OdbijeniLekovi.xaml.cs">
+    <Compile Update="Views\OdbijeniLijekovi.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\OdobravanjeLekova.xaml.cs">
+    <Compile Update="Views\OdobravanjeLijekova.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\OdobreniLekovi.xaml.cs">
+    <Compile Update="Views\OdobreniLijekovi.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -48,13 +48,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\DodavanjeLeka.xaml">
+    <Page Update="Views\DodavanjeLijeka.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Korisnici.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\PorucivanjeLekova.xaml">
+    <Page Update="Views\PorucivanjeLijekova.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Upravnik.xaml">
@@ -75,13 +75,13 @@
     <Page Update="Views\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\OdbijeniLekovi.xaml">
+    <Page Update="Views\OdbijeniLijekovi.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\OdobravanjeLekova.xaml">
+    <Page Update="Views\OdobravanjeLijekova.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\OdobreniLekovi.xaml">
+    <Page Update="Views\OdobreniLijekovi.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
